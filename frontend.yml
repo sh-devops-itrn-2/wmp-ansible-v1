@@ -35,5 +35,5 @@
 
     - name: Install Nginx 1.26
       ansible.builtin.dnf:
-          name: 'nginx:1.26'
+          name: '@nginx:1.26'
           state: installed
