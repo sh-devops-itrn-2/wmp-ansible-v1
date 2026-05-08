@@ -37,7 +37,7 @@
     - name: Download and Extract App content
       ansible.builtin.unarchive:
           src: https://raw.githubusercontent.com/raghudevopsb88/wealth-project/main/artifacts/frontend.tar.gz
-          dest: /tmp/frontend.tar.gz
+          dest: /usr/share/nginx
           remote_src: yes
 
 
