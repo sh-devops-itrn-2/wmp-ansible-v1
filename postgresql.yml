@@ -8,3 +8,12 @@
         state: installed
         disable_gpg_check: yes
 
+    - name: Disable PostgreSQL default module
+      ansible.builtin.shell: dnf -qy module disable postgresql
+
+    - name: Install Postgreseql 16
+      ansible.builtin.dnf:
+        name:
+          - "postgresql16-server"
+          -  "postgresql16"
+        state: present
