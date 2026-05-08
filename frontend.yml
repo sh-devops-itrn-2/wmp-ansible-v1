@@ -38,6 +38,7 @@
       ansible.builtin.unarchive:
           src: https://raw.githubusercontent.com/raghudevopsb88/wealth-project/main/artifacts/frontend.tar.gz
           dest: /tmp/frontend.tar.gz
+          remote_src: yes
 
 
 
