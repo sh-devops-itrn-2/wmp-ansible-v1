@@ -17,8 +17,10 @@
           - "postgresql16-server"
           -  "postgresql16"
         state: present
+
     - name: Initialize Database
       ansible.builtin.shell: /usr/pgsql-16/bin/postgresql-16-setup initdb
+      ignore_errors: yes
 
 
     - name: Replace  listen_addresses
