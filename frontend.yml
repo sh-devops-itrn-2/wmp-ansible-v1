@@ -55,7 +55,7 @@
           remote_src: yes
 
     - name: Install dependencies
-      ansible.builtin.shell: nmp ci; npm run build
+      ansible.builtin.shell: npm ci; npm run build
       args:
         chdir: /usr/share/nginx/
 
