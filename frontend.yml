@@ -43,6 +43,11 @@
         path: /usr/share/nginx/
         state: absent
 
+    - name: Create a directory
+      ansible.builtin.file:
+        path: /usr/share/nginx/
+        state: directory
+
     - name: Download and Extract App content
       ansible.builtin.unarchive:
           src: https://raw.githubusercontent.com/raghudevopsb88/wealth-project/main/artifacts/frontend.tar.gz
