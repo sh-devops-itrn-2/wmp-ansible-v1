@@ -28,17 +28,33 @@
   hosts: all
   become: yes
   tasks:
+    - name: add node 22 repo
+      ansible.builtin.shell: curl -fsSL https://rpm.nodesource.com/setup_22.x | bash -
 
     - name: Install Nginx 1.26
       ansible.builtin.dnf:
-          name: '@nginx:1.26'
+          name:
+            - '@nginx:1.26'
+            - nodejs
           state: installed
+
+    - name: Remove default nginx content
+      ansible.builtin.file:
+        path: /usr/share/nginx/
+        state: absent
 
     - name: Download and Extract App content
       ansible.builtin.unarchive:
           src: https://raw.githubusercontent.com/raghudevopsb88/wealth-project/main/artifacts/frontend.tar.gz
           dest: /usr/share/nginx
           remote_src: yes
+
+    - name: Install dependencies
+      ansible.builtin.shell: nmp ci; npm run build
+      args:
+        chdir: /usr/share/nginx/
+
+
 
 
 
