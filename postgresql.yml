@@ -19,3 +19,10 @@
         state: present
     - name: Initialize Database
       ansible.builtin.shell: /usr/pgsql-16/bin/postgresql-16-setup initdb
+
+
+    - name: Replace  listen_addresses
+      ansible.builtin.replace:
+        path: /var/lib/pgsql/16/data/postgresql.conf
+        regexp: "#listen_addresses = 'localhost'"
+        replace: "listen_addresses = '*'"
